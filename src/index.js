@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { combineReducers, createStore } from 'redux';
 import productReducer from './reducers/productReducer';
 import filterReducer from './reducers/filterReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 const reducer = combineReducers({
@@ -14,7 +15,7 @@ const reducer = combineReducers({
   filter: filterReducer
 })
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools())
 console.log("the state is:", store.getState())
 
 ReactDOM.render(
